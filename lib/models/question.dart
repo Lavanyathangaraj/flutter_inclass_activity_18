@@ -1,3 +1,5 @@
+// lib/models/question.dart
+
 import 'dart:convert';
 
 class Question {
@@ -18,8 +20,6 @@ class Question {
     options.shuffle();
 
     return Question(
-      // Note: The API often returns HTML entities (e.g., &quot;),
-      // For production, you would add a package like 'html_unescape' here.
       question: json['question'],
       options: options,
       correctAnswer: json['correct_answer'],

@@ -1,3 +1,5 @@
+// lib/screens/quiz_screen.dart
+
 import 'package:flutter/material.dart';
 import '../models/question.dart';
 import '../services/api_service.dart';
@@ -31,10 +33,8 @@ class _QuizScreenState extends State<QuizScreen> {
       });
     } catch (e) {
       print(e);
-      // Handle error appropriately (e.g., show a dialog to the user)
       setState(() {
         _loading = false;
-        // Optionally set an error message
       });
     }
   }
@@ -84,12 +84,13 @@ class _QuizScreenState extends State<QuizScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: ElevatedButton(
-        // Disable button if an answer has already been submitted
         onPressed: _answered ? null : () => _submitAnswer(option),
         child: Text(option),
         style: ElevatedButton.styleFrom(
-          primary: getButtonColor(),
-          onPrimary: Colors.white,
+          // FIX: Replaced 'primary' with 'backgroundColor'
+          backgroundColor: getButtonColor(),
+          // FIX: Replaced 'onPrimary' with 'foregroundColor'
+          foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(vertical: 15),
           textStyle: TextStyle(fontSize: 16),
         ),
@@ -105,7 +106,6 @@ class _QuizScreenState extends State<QuizScreen> {
       );
     }
 
-    // Check if the quiz is finished
     if (_currentQuestionIndex >= _questions.length) {
       return Scaffold(
         body: Center(
@@ -156,7 +156,8 @@ class _QuizScreenState extends State<QuizScreen> {
                 onPressed: _nextQuestion,
                 child: Text('Next Question'),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.lightBlue,
+                  // FIX: Replaced 'primary' with 'backgroundColor'
+                  backgroundColor: Colors.lightBlue,
                   padding: EdgeInsets.symmetric(vertical: 15),
                 ),
               ),
