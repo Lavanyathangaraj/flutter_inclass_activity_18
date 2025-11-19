@@ -15,6 +15,7 @@ dependencies:
   # ADDED HTTP PACKAGE FOR API CALLS
   http: ^0.13.4
   cupertino_icons: ^1.0.8
+  html_unescape: ^2.0.0
 
 dev_dependencies:
   flutter_test:
